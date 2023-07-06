@@ -301,35 +301,48 @@ namespace Calculator
 
         //..................................................................................//
         double memory = 0;
+        string memoryTemp = "";
 
         private void MPlusButton_Click(object sender, RoutedEventArgs e)
         {
             // Добавленме текущего значения output к значению в памяти
-            memory += double.Parse(output);
+            double currentValue = 0;
+            if (double.TryParse(output, out currentValue))
+            {
+                memory += currentValue;
+                memoryTemp = memory.ToString();
+            }
         }
 
         private void MMinusButton_Click(object sender, RoutedEventArgs e)
         {
             // Вычитание текущего значения output из значения в памяти
-            memory -= double.Parse(output);
+            double currentValue = 0;
+            if (double.TryParse(output, out currentValue))
+            {
+                memory -= currentValue;
+                memoryTemp = memory.ToString();
+            }
         }
 
         private void MSButton_Click(object sender, RoutedEventArgs e)
         {
             // Сохранение текущего значения output в памяти
             memory = double.Parse(output);
+            memoryTemp = memory.ToString();
         }
 
         private void MCButton_Click(object sender, RoutedEventArgs e)
         {
             // Очистка значения в памяти
             memory = 0;
+            memoryTemp = "";
         }
 
         private void MRButton_Click(object sender, RoutedEventArgs e)
         {
             // Запись значения из памяти в output
-            output = memory.ToString("G");
+            output = memoryTemp;
             TextBlock.Text = output;
         }
 
