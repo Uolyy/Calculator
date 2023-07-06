@@ -286,12 +286,13 @@ namespace Calculator
                     break;
 
                 case "Divide":
-                    if (double.Parse(output) != 0)
+                    if (!string.IsNullOrEmpty(output) && double.Parse(output) != 0)
                     {
                         outputTemp = temp / double.Parse(output);
                         output = outputTemp.ToString();
                         TextBlock.Text = output;
-                    }                  
+                    }
+
                     break;                   
             }
 
