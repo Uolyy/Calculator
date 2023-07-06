@@ -332,6 +332,7 @@ namespace Calculator
             memoryTemp = memory.ToString();
         }
 
+
         private void MCButton_Click(object sender, RoutedEventArgs e)
         {
             // Очистка значения в памяти
